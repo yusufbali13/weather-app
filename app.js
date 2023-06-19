@@ -25,17 +25,18 @@ form.addEventListener("click", (e) => {
 
 const getData = async () => {
   // api key'imizi değişken olarak atadık.
-  const API_KEY = "66d68b83cc1917c740dcc7ba91c868a1";
+  const API_KEY = "7d249aae2f4faa3d4dda582d00c60cc6";
   const cityName = input.value;
   const units = "metric";
 
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}&lang=tr
-`;
+  const URL = `
+  https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}&lang=tr
+  `;
 
   try {
     const res = await fetch(URL);
 
-    //     console.log(res);
+    console.log(res);
 
     if (!res.ok) {
       throw new Error(res.status);
@@ -49,18 +50,18 @@ const getData = async () => {
 };
 
 const weatherDataDom = (data) => {
-      // ! data bize object verdiği için objeck destructiring yaptık ve verileri bu şekilde aldık.
-// peki destructiring yapmasaydık data.içerisinde veriye göre girip almamız gerekirdi.
+  // ! data bize object verdiği için objeck destructiring yaptık ve verileri bu şekilde aldık.
+  // peki destructiring yapmasaydık data.içerisinde veriye göre girip almamız gerekirdi.
   const {
     name,
     sys: { country },
     main: { temp, feels_like, humidity },
-    weather: [{ main, description, icon }], 
+    weather: [{ description, icon }],
     wind: { speed },
   } = data;
-//   console.log(data);
-//   console.log(speed);
-// ! 1.yöntem göndereceğimiz yerleri seçip inner textine verileri eklemek
+  //   console.log(data);
+  //   console.log(speed);
+  // ! 1.yöntem göndereceğimiz yerleri seçip inner textine verileri eklemek
   //   const şehir = document.querySelector("#şehir-adi");
   //   const ülke = document.querySelector("#ülke");
   //   const havaDurumuDerece = document.querySelector("#derece");
@@ -76,7 +77,7 @@ const weatherDataDom = (data) => {
   //   hissedilenDerece.innerText = Math.round(feels_like);
   //   rüzgarHizi.innerText = Math.round(speed);
   //   nemOrani.innerText = humidity;
-// ! 2.yöntem innerHtml ile oluşturduğumuz html kalıbını bacdick ile açarak dolar süslü ile api'deki verileri buraya ekledik.
+  // ! 2.yöntem innerHtml ile oluşturduğumuz html kalıbını bacdick ile açarak dolar süslü ile api'deki verileri buraya ekledik.
   const container = document.querySelector(".container");
   container.innerHTML = `
   <div class="card p-4 text-center " style="width: 18rem;">
@@ -130,11 +131,11 @@ const weatherDataDom = (data) => {
   `;
   //   https://openweathermap.org/img/wn/10d@2x.png
 
-//! APİ'den havanın durumuna göre iconlar çağırdık img'nin srcsine ekledik.
+  //! APİ'den havanın durumuna göre iconlar çağırdık img'nin srcsine ekledik.
   const cardImg = document.querySelector(".card-img-top");
   cardImg.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
-// ! 2.yöntem ise havanın durumuna göre if else if ile hava nasılsa ona göre lokalimizdeki resimleri images srcsine ekledik.
+  // ! 2.yöntem ise havanın durumuna göre if else if ile hava nasılsa ona göre lokalimizdeki resimleri images srcsine ekledik.
   //   if (main == "Clouds") {
   //     cardImages.src = "images/clouds.png";
   //   } else if (main == "Clear") {
