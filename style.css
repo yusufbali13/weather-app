@@ -4,25 +4,23 @@ html {
 body {
   text-align: center;
   margin-top: 50px;
-  height: 94.5vh;
-  background: rgb(255, 255, 255);
+  height: 110vh;
+  /* background: rgb(255, 255, 255);
   background: linear-gradient(
     207deg,
     rgba(255, 255, 255, 1) 7%,
     rgba(92, 190, 191, 1) 100%
-  );
-  /* background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
-       */
+  ); */
+  background-color: #545b77;
 }
 .card-form {
-  background: linear-gradient(135deg, #00feba, #5b548a);
+  margin: auto;
+  /* background: linear-gradient(135deg, #00feba, #5b548a); */
+  background: #9babb8;
   color: #eaeaea;
   width: 55rem;
   border-radius: 20px;
   opacity: 0.98;
-  /* height: 15rem; */
   font-size: 2rem;
   padding: 5rem;
   #input-alani {
