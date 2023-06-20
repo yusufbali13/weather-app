@@ -44,7 +44,7 @@ body {
     box-shadow: 2px 5px 7px #000;
     cursor: pointer;
     &:hover {
-      background-color: tomato;
+      background-color: rgb(198, 107, 42);
       color: #fff;
       transition: all 0.7s ease-in-out;
     }
