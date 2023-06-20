@@ -2,7 +2,6 @@ const form = document.querySelector("form");
 const input = document.querySelector("#input-alani");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e.target);
   getData();
   e.currentTarget.reset();
 });
@@ -13,9 +12,7 @@ const getData = async () => {
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}&lang=tr`;
   try {
     const res = await fetch(URL);
-    console.log(res);
     const data = await res.json();
-    console.log(data);
     if (!res.ok) {
       throw new Error("hata var");
     }
